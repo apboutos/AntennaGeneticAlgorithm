@@ -43,8 +43,4 @@ The project implements the following features:
   <li>Reproduction Methods: Linear Crossover, Arithmetic Crossover</li>
   <li>Mutation Methods: Uniform</li>
 
-
-
-
-
-
+![What is this](AntennaGeneticAlgorithmSample.png)
