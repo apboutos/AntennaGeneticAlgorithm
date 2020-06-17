@@ -16,7 +16,7 @@ Where
   
   <b>c</b>    is the amount of people the antenna can service.</br>
   <b>dmax</b> is the maximum euclidean distance between two cities.</br>
-  <b>n</b>    is the citie's population.</br>
+  <b>n</b>    is the city's population.</br>
   <b>d</b>    is the euclidean distance between the city and the antenna.</br>
 
 
