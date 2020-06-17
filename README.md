@@ -21,17 +21,16 @@ Where
 
 
 A genetic algorithm is a machine learning algorithm inspired by the evolution of organisms through natural selection. Such an 
-algorithm is very useful when we can cheaply produce solutions for a given problem but we do not know what the best solution is
-or finding the best solution through other means is a very resource heavy operations.
+algorithm is very useful when we can cheaply produce solutions for a given problem, but we do not know what the best solution is, or finding the best solution through other means is a very resource heavy operation.
 
 The genetic algothm contains the following steps.
 <ol>
-  <li>Map the solution's parameters (in this case the coordinates of each antenna) into variables called genes</li>
+  <li>Map the solution's parameters (in this case the coordinates of each antenna) into variables called genes.</li>
   <li>Randomly produce a starting population of solutions.</li>
   <li>Evaluate each member of the population via an evaluation function.</li>
   <li>Select a subset of the population as parents. The selection method should be slightly biased to favor members of the
       population with good genes.</li>
-  <li>Allow the parents to reproduce thus creating a new population of solutions, called the children population.</li>
+  <li>Allow the parents to reproduce, thus creating a new population of solutions called the children population.</li>
   <li>Evaluate all the created children.</li>
   <li>Form the population of the next generation by selecting member from both the parent and the children population. The 
       selection method should be slightly biased to favor members with good genes.</li>
