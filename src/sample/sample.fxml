@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.ScatterChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1266.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <ScrollPane prefHeight="405.0" prefWidth="854.0">
+            <content>
+                <AnchorPane fx:id="coverage_AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="405.0" prefWidth="858.0">
+                    <children>
+                        <LineChart fx:id="coverage_Chart" prefHeight="339.0" prefWidth="827.0">
+                            <xAxis>
+                                <CategoryAxis prefHeight="5.0" prefWidth="770.0" side="BOTTOM" />
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis side="LEFT" />
+                            </yAxis>
+                        </LineChart>
+                    </children>
+                </AnchorPane>
+            </content></ScrollPane>
+        <AnchorPane layoutX="14.0" layoutY="399.0" prefHeight="183.0" prefWidth="840.0">
+            <children>
+                <Label layoutX="20.0" layoutY="63.0" prefHeight="17.0" prefWidth="96.0" text="Mutation Chance" />
+                <ChoiceBox fx:id="parentCoice_ChoiceBox" layoutX="398.0" layoutY="22.0" prefWidth="150.0" />
+                <CheckBox fx:id="elitism_CheckBox" layoutX="129.0" layoutY="26.0" mnemonicParsing="false" />
+                <Button fx:id="button_Start" layoutX="648.0" layoutY="71.0" mnemonicParsing="false" onAction="#handleStartButtonAction" text="Start" />
+                <Label layoutX="20.0" layoutY="26.0" text="Elitism" />
+                <Label layoutX="272.0" layoutY="62.0" text="Parent/Child Ratio" />
+                <Label layoutX="601.0" layoutY="26.0" text="Dataset" />
+                <Label layoutX="272.0" layoutY="22.0" prefHeight="25.0" prefWidth="74.0" text="Parent Choice" />
+                <TextField fx:id="dataset_TextField" layoutX="648.0" layoutY="22.0" prefHeight="25.0" prefWidth="111.0" text="C:\Users\exoph\Desktop\dataset.xml" />
+                <Label layoutX="272.0" layoutY="129.0" prefHeight="17.0" prefWidth="74.0" text="Generations" />
+                <TextField fx:id="generations_TextField" layoutX="398.0" layoutY="125.0" prefHeight="25.0" prefWidth="62.0" promptText="100" text="100" />
+                <Button fx:id="pause_Button" layoutX="689.0" layoutY="112.0" mnemonicParsing="false" onAction="#handlePauseButtonAction" text="Pause" />
+                <Button fx:id="stop_Button" layoutX="718.0" layoutY="71.0" mnemonicParsing="false" onAction="#handleStopButtonAction" text="Stop" />
+                <Button fx:id="button_Open" layoutX="759.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" text="Open" />
+                <ChoiceBox fx:id="parentChildRatio_Box" layoutX="398.0" layoutY="59.0" prefWidth="150.0" />
+                <TextField fx:id="mutationChance_TextField" layoutX="126.0" layoutY="58.0" prefHeight="25.0" prefWidth="62.0" promptText="10%" text="10%" />
+                <Label layoutX="272.0" layoutY="161.0" text="Population" />
+                <ChoiceBox fx:id="mutationMethod" layoutX="126.0" layoutY="92.0" prefHeight="25.0" prefWidth="111.0" />
+                <Label layoutX="272.0" layoutY="96.0" text="Reproduction Method" />
+                <ChoiceBox fx:id="reproductionMethod" layoutX="398.0" layoutY="92.0" prefWidth="150.0" />
+                <TextField fx:id="population_TextField" layoutX="399.0" layoutY="157.0" prefHeight="25.0" prefWidth="62.0" text="100" />
+                <Label layoutX="21.0" layoutY="96.0" text="Mutation Method" />
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="862.0" layoutY="382.0" prefHeight="200.0" prefWidth="400.0">
+            <children>
+                <TextArea fx:id="result_TextArea" layoutX="14.0" layoutY="14.0" prefHeight="183.0" prefWidth="375.0" text="Best Solution :  [12,23 34,45 14,47]&#10;Coverage : 965k&#10;Generations created: 100&#10;" />
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="870.0" layoutY="14.0" prefHeight="358.0" prefWidth="326.0">
+            <children>
+                <ScatterChart fx:id="cities_Chart" layoutX="-14.0" layoutY="-11.0" prefHeight="380.0" prefWidth="391.0">
+                    <xAxis>
+                        <NumberAxis side="BOTTOM" fx:id="xAxis" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis fx:id="yAxis" side="LEFT" />
+                    </yAxis>
+                </ScatterChart>
+            </children>
+        </AnchorPane>
+    </children>
+</Pane>
