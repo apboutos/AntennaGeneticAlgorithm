@@ -46,6 +46,7 @@ public class Controller implements Initializable {
     @FXML private NumberAxis xAxis;
     @FXML private NumberAxis yAxis;
     @FXML private TextField population_TextField;
+          private boolean datasetLoaded;
     private Algorithm geneticAlgorithm;
 
     @Override
@@ -101,6 +102,7 @@ public class Controller implements Initializable {
         coverage_Chart.getData().add(series);
         coverage_AnchorPane.setMinWidth(500);
         coverage_Chart.setMinWidth(500);
+        datasetLoaded = false;
 
     }
 
@@ -149,20 +151,23 @@ public class Controller implements Initializable {
     @FXML protected void handleStartButtonAction(ActionEvent event){
 
         Parameters parameters = new Parameters();
-        cityList = DatasetLoader.decodeDataset(new File(dataset_TextField.getText()));
-        parameters.setCityList(cityList);
-        parameters.setElitism(elitism_CheckBox.isSelected());
-        parameters.setGenerations(Integer.parseInt(generations_TextField.getText()));
-        parameters.setMutationChance(mutationChance_TextField.getText());
-        parameters.setParentChoice(parentCoice_ChoiceBox.getValue().toString());
-        parameters.setParentChildRatio(parentChildRatio_Box.getValue().toString());
-        parameters.setMutationMethod(mutationMethod.getValue().toString());
-        parameters.setReproductionMethod(reproductionMethod.getValue().toString());
-        parameters.setPopulation(Integer.parseInt(population_TextField.getText()));
-        coverage_Chart.getData().get(0).getData().clear();
-        geneticAlgorithm = new Algorithm(this,parameters);
-        geneticAlgorithm.run();
 
+        loadDataset();
+
+        if(datasetLoaded){
+            parameters.setCityList(cityList);
+            parameters.setElitism(elitism_CheckBox.isSelected());
+            parameters.setGenerations(Integer.parseInt(generations_TextField.getText()));
+            parameters.setMutationChance(mutationChance_TextField.getText());
+            parameters.setParentChoice(parentCoice_ChoiceBox.getValue().toString());
+            parameters.setParentChildRatio(parentChildRatio_Box.getValue().toString());
+            parameters.setMutationMethod(mutationMethod.getValue().toString());
+            parameters.setReproductionMethod(reproductionMethod.getValue().toString());
+            parameters.setPopulation(Integer.parseInt(population_TextField.getText()));
+            coverage_Chart.getData().get(0).getData().clear();
+            geneticAlgorithm = new Algorithm(this,parameters);
+            geneticAlgorithm.run();
+        }
     }
 
     @FXML protected void handlePauseButtonAction(ActionEvent event){
@@ -192,6 +197,18 @@ public class Controller implements Initializable {
     public ArrayList<City> getCityList(){
 
         return (cityList != null ? cityList : new ArrayList<City>());
+    }
+
+    private void loadDataset(){
+        try{
+            cityList = DatasetLoader.decodeDataset(new File(dataset_TextField.getText()));
+            datasetLoaded = true;
+        }
+        catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Could not load the file containing the city data.", ButtonType.OK);
+            alert.showAndWait();
+            datasetLoaded = false;
+        }
     }
 
 

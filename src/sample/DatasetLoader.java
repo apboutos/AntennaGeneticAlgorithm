@@ -14,10 +14,9 @@ import java.util.ArrayList;
 
 public class DatasetLoader {
 
-    public static ArrayList<City> decodeDataset(File datasetFile){
+    public static ArrayList<City> decodeDataset(File datasetFile) throws Exception{
 
         ArrayList<City> cityList = new ArrayList<>();
-        try{
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = dbFactory.newDocumentBuilder();
             Document doc = builder.parse(datasetFile);
@@ -41,11 +40,7 @@ public class DatasetLoader {
                     cityList.add(city);
                 }
             }
-        }
-        catch (Exception e){
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-        }
+
         return cityList;
     }
 }
