@@ -42,5 +42,9 @@ The project implements the following features:
   <li>Parent Selection Methods: Roulette wheel, Ranked Roulette Wheel, Tournament</li>
   <li>Reproduction Methods: Linear Crossover, Arithmetic Crossover</li>
   <li>Mutation Methods: Uniform</li>
-
+  
+ 
+ This is a sample screenshot of the project's GUI. The diagram on the left plots the best solution of each generation, while
+ the diagram on the right plots the cities and the antennas of the overall best solution on the X,Y matrix
+ 
 ![What is this](AntennaGeneticAlgorithmSample.png)
